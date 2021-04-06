@@ -1,6 +1,6 @@
 package stats
 import (
-	"github.com/rgsgit/bank/pkg/types"
+	"github.com/rgsgit/bank/v2/pkg/types"
 	"fmt"
 )
 
