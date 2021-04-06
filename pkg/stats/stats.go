@@ -52,3 +52,23 @@ func CategoriesTotal(payments []types.Payment) map[types.Category]types.Money {
 	}
 	return categories
 }
+
+//PeriodDinamics сравнивает по категориям за два периода
+func PeriodsDynamic(first map[types.Category]types.Money, second map[types.Category]types.Money) map[types.Category]types.Money {
+	result := map[types.Category]types.Money{}
+	for secondId, category := range second {
+		firstPeriodElem, isFind := first[secondId]
+		if isFind {
+			result[secondId] = category - firstPeriodElem
+		} else {
+			result[secondId] = category
+		}
+	}
+	for firstId, category := range first {
+		secondPeriodElem, isFind := second[firstId]
+		if !isFind {
+			result[firstId] = secondPeriodElem - category
+		}
+	}
+	return result
+}
