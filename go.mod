@@ -1,4 +1,4 @@
-module github.com/rgsgit/stats
+module github.com/rgsgit/stats/v2
 
 go 1.16
 
